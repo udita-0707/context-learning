@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import TodoDetails from "./pages/todoDetails";
+import TodoList from "./pages/ListTodo";
+import CreateTodo from "./pages/createTodo";
+import ErrorPage from "./components/errorPage";
+import RootTodoElement from "./components/rootTodo";
+import CartApplication from './cartApplication/App';
+import ThemePage from './themeSwticher/themedPage';
+const BrowserRouter = createBrowserRouter([
+  {
+    path: "/todoApp",
+    element: <RootTodoElement />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <TodoList />,
+      },
+      {
+        path: "todo/:todoId",
+        element: <TodoDetails />,
+      },
+      {
+        path: "create",
+        element: <CreateTodo />,
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+  <ThemePage />
     </div>
   );
 }
