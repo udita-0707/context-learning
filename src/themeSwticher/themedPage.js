@@ -1,9 +1,11 @@
+import { useContext } from 'react';
 import Header from './Header';
 import './theme.css';
-
+import ThemeContext from './themeContext';
 export default function Page() {
+    const theme = useContext(ThemeContext);
     return (
-        <div id="app">
+        <div id="app" className={theme}>
             <Header />
 
             <article>

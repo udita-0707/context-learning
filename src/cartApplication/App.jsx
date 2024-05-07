@@ -5,7 +5,7 @@ import Shop from './components/Shop.jsx';
 import { DUMMY_PRODUCTS } from './dummy-products.js';
 import "./index.css";
 
-function App() {
+function CartApp() {
   const [shoppingCart, setShoppingCart] = useState({
     items: [],
   });
@@ -77,4 +77,4 @@ function App() {
   );
 }
 
-export default App;
+export default CartApp;
